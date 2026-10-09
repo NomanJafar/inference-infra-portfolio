@@ -24,6 +24,10 @@ Each project is its own repository with a concept primer (`CONCEPTS.md`), workin
 | 14 | [inferchaos](https://github.com/NomanJafar/inferchaos) | GPU throttling, replica kills, traffic spikes; SLO burn and recovery | planned |
 | 15 | [serving-benchmarks](https://github.com/NomanJafar/serving-benchmarks) | Public, reproducible benchmark of three serving configs with full methodology | planned |
 
+## Scope
+
+Scope, per-project day budgets and exclusions are locked in [SCOPE.md](SCOPE.md): about 19 dev days in total, portfolio-grade not production-grade.
+
 ## Build order
 
 1 → 2 → 3 → 7 → 5 → 6 → 8 → 9 → 4 → 13 → 12 → 11 → 14 → 10 → 15
