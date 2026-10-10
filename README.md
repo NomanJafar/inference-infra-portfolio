@@ -14,7 +14,7 @@ Each project is its own repository with a concept primer (`CONCEPTS.md`), workin
 | 4 | [prefixrouter](https://github.com/NomanJafar/prefixrouter) | Route shared-prefix requests to the same replica to reuse KV blocks | planned |
 | 5 | [quantlab](https://github.com/NomanJafar/quantlab) | FP16 vs INT8 vs AWQ (vs FP8 where possible): quality, latency, VRAM | planned |
 | 6 | [specdec](https://github.com/NomanJafar/specdec) | Draft + target speculative decoding with acceptance-rate tracking | planned |
-| 7 | [fusedkernels](https://github.com/NomanJafar/fusedkernels) | Fused softmax and RMSNorm in Triton, benchmarked against PyTorch | in progress |
+| 7 | [fusedkernels](https://github.com/NomanJafar/fusedkernels) | Fused softmax and RMSNorm in Triton, benchmarked against PyTorch | **done** |
 | 8 | [chunkedprefill-lab](https://github.com/NomanJafar/chunkedprefill-lab) | Chunked prefill under mixed prefill/decode load | planned |
 | 9 | [pagedattention-under-pressure](https://github.com/NomanJafar/pagedattention-under-pressure) | vLLM paging under memory pressure: fragmentation, preemption, eviction | planned |
 | 10 | [splitserve](https://github.com/NomanJafar/splitserve) | Disaggregated prefill/decode on separate GPUs | planned |
@@ -52,4 +52,6 @@ Free-tier only: Kaggle and Colab T4s (16 GB, Turing). Two-GPU projects (4, 10) u
 
 ## Results
 
-Headline numbers from each project will be collected here as they land.
+Headline numbers from each project, collected as they land.
+
+- **fusedkernels (7):** hand-written Triton softmax and RMSNorm reach 67–75% of the T4's 320 GB/s on five of six shapes, beating `torch.softmax` by up to 35% (240 vs 178 GB/s at 4096x4096); `torch.compile` of the unfused code drops to 21–38% of peak on long rows; the single-block design hits a register-spill cliff at 65k-column rows.
