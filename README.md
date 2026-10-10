@@ -8,7 +8,7 @@ Each project is its own repository with a concept primer (`CONCEPTS.md`), workin
 
 | # | Repo | What it proves | Status |
 |---|------|----------------|--------|
-| 1 | [servellm](https://github.com/NomanJafar/servellm) | Serve an open model on vLLM with continuous batching behind an OpenAI-compatible API | code done; GPU run in progress |
+| 1 | [servellm](https://github.com/NomanJafar/servellm) | Serve an open model on vLLM with continuous batching behind an OpenAI-compatible API | **done** |
 | 2 | [tokenbench](https://github.com/NomanJafar/tokenbench) | TTFT / inter-token latency / throughput under rising concurrency; the harness every later project reuses | code done; GPU run pending |
 | 3 | [kvcalc](https://github.com/NomanJafar/kvcalc) | Predict KV cache VRAM per model and config, then watch live utilisation | code done; GPU run pending |
 | 4 | [prefixrouter](https://github.com/NomanJafar/prefixrouter) | Route shared-prefix requests to the same replica to reuse KV blocks | planned |
@@ -54,4 +54,5 @@ Free-tier only: Kaggle and Colab T4s (16 GB, Turing). Two-GPU projects (4, 10) u
 
 Headline numbers from each project, collected as they land.
 
+- **servellm (1):** Qwen2.5-1.5B FP16 on a T4: hand-calculated KV cache (28,672 B/token) matched vLLM exactly (9.08 GiB, 340k tokens); continuous batching took aggregate throughput from 67 to 1,637 tok/s at 64 users (24x) while per-user ITL rose only 14.7 → 36.8 ms; with batching off, throughput stayed at 67 tok/s and median TTFT reached 29 s at 16 users; 16-token requests finished in 0.35 s alongside 8.9 s ones.
 - **fusedkernels (7):** hand-written Triton softmax and RMSNorm reach 67–75% of the T4's 320 GB/s on five of six shapes, beating `torch.softmax` by up to 35% (240 vs 178 GB/s at 4096x4096); `torch.compile` of the unfused code drops to 21–38% of peak on long rows; the single-block design hits a register-spill cliff at 65k-column rows.
