@@ -48,7 +48,7 @@ These are portfolio projects, not production systems. The goal of each is to **d
 ## Daily rhythm
 
 - Each day: one concept primer or one build step or one results write-up, ending in a pushed commit. Nothing stays local overnight.
-- GPU runs are done by Noman on Kaggle; while a run is queued, work continues on the next project's primer or code.
+- GPU runs happen on Kaggle; while a run is queued, work continues on the next project's primer or code.
 - If a project is overrunning its budget by more than half a day, cut scope to what is already measured and write it up; the write-up says what was cut.
 
 ## Change control
