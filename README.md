@@ -11,18 +11,18 @@ Each project is its own repository with a concept primer (`CONCEPTS.md`), workin
 | 1 | [servellm](https://github.com/NomanJafar/servellm) | Serve an open model on vLLM with continuous batching behind an OpenAI-compatible API | **done** |
 | 2 | [tokenbench](https://github.com/NomanJafar/tokenbench) | TTFT / inter-token latency / throughput under rising concurrency; the harness every later project reuses | **done** |
 | 3 | [kvcalc](https://github.com/NomanJafar/kvcalc) | Predict KV cache VRAM per model and config, then watch live utilisation | **done** |
-| 4 | [prefixrouter](https://github.com/NomanJafar/prefixrouter) | Route shared-prefix requests to the same replica to reuse KV blocks | planned |
+| 4 | prefixrouter | Route shared-prefix requests to the same replica to reuse KV blocks | planned |
 | 5 | [quantlab](https://github.com/NomanJafar/quantlab) | FP16 vs INT8 vs AWQ (vs FP8 where possible): quality, latency, VRAM | **done** |
 | 6 | [specdec](https://github.com/NomanJafar/specdec) | Draft + target speculative decoding with acceptance-rate tracking | **done** |
 | 7 | [fusedkernels](https://github.com/NomanJafar/fusedkernels) | Fused softmax and RMSNorm in Triton, benchmarked against PyTorch | **done** |
-| 8 | [chunkedprefill-lab](https://github.com/NomanJafar/chunkedprefill-lab) | Chunked prefill under mixed prefill/decode load | planned |
-| 9 | [pagedattention-under-pressure](https://github.com/NomanJafar/pagedattention-under-pressure) | vLLM paging under memory pressure: fragmentation, preemption, eviction | planned |
-| 10 | [splitserve](https://github.com/NomanJafar/splitserve) | Disaggregated prefill/decode on separate GPUs | planned |
-| 11 | [gpuscaler](https://github.com/NomanJafar/gpuscaler) | Queue-depth autoscaling with cold-start mitigation | planned |
-| 12 | [tokenmeter](https://github.com/NomanJafar/tokenmeter) | Per-tenant token accounting, $/M tokens, MFU | planned |
-| 13 | [llmgateway](https://github.com/NomanJafar/llmgateway) | Multi-provider routing with SLOs, rate limits, retries, degradation chains | planned |
-| 14 | [inferchaos](https://github.com/NomanJafar/inferchaos) | GPU throttling, replica kills, traffic spikes; SLO burn and recovery | planned |
-| 15 | [serving-benchmarks](https://github.com/NomanJafar/serving-benchmarks) | Public, reproducible benchmark of three serving configs with full methodology | planned |
+| 8 | chunkedprefill-lab | Chunked prefill under mixed prefill/decode load | planned |
+| 9 | pagedattention-under-pressure | vLLM paging under memory pressure: fragmentation, preemption, eviction | planned |
+| 10 | splitserve | Disaggregated prefill/decode on separate GPUs | planned |
+| 11 | gpuscaler | Queue-depth autoscaling with cold-start mitigation | planned |
+| 12 | tokenmeter | Per-tenant token accounting, $/M tokens, MFU | planned |
+| 13 | llmgateway | Multi-provider routing with SLOs, rate limits, retries, degradation chains | planned |
+| 14 | inferchaos | GPU throttling, replica kills, traffic spikes; SLO burn and recovery | planned |
+| 15 | serving-benchmarks | Public, reproducible benchmark of three serving configs with full methodology | planned |
 
 ## Scope
 
