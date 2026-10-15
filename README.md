@@ -16,7 +16,7 @@ Each project is its own repository with a concept primer (`CONCEPTS.md`), workin
 | 6 | [specdec](https://github.com/NomanJafar/specdec) | Draft + target speculative decoding with acceptance-rate tracking | **done** |
 | 7 | [fusedkernels](https://github.com/NomanJafar/fusedkernels) | Fused softmax and RMSNorm in Triton, benchmarked against PyTorch | **done** |
 | 8 | chunkedprefill-lab | Chunked prefill under mixed prefill/decode load | planned |
-| 9 | pagedattention-under-pressure | vLLM paging under memory pressure: fragmentation, preemption, eviction | planned |
+| 9 | [pagedattention-under-pressure](https://github.com/NomanJafar/pagedattention-under-pressure) | vLLM paging under memory pressure: fragmentation, preemption, eviction | **done** |
 | 10 | splitserve | Disaggregated prefill/decode on separate GPUs | planned |
 | 11 | gpuscaler | Queue-depth autoscaling with cold-start mitigation | planned |
 | 12 | tokenmeter | Per-tenant token accounting, $/M tokens, MFU | planned |
@@ -55,4 +55,5 @@ Headline numbers from each project, collected as they land.
 - **kvcalc (3):** predicted KV cache capacity within 1.7% of vLLM's reported 340,064 tokens (per-token math exact, 1.05 GiB measured for activations + overhead); cache size unchanged between max-model-len 2048 and 8192; prefix caching made 64 users with identical 1,024-token prompts use 5.4% of cache instead of 24%.
 - **quantlab (5):** Qwen2.5-3B on a T4: single-stream ITL 40.3 → 16.8 (INT8, 2.4x) → 12.5 ms (INT4, 3.2x, tracking the weight-size ratio), fading to +27% throughput at 64 users; KV cache +64% at 4-bit; INT8 lossless (perplexity identical, GSM8K within noise); 4-bit costs 8–15 GSM8K points while perplexity moves only 8%, and AWQ's checkpoint loses more than GPTQ-Int4's.
 - **specdec (6):** Qwen2.5-0.5B drafting for Qwen2.5-3B on a T4: greedy outputs byte-identical across all configurations; per-position acceptance decays geometrically (0.67 → 0.48 → 0.35, α≈0.68); k=1 is the best setting (+30% throughput at 4 users, +7% at 16) and k=5 is a net loss everywhere; speculation cost 37% of the KV cache; n-gram speculation proposed drafts in only 7% of steps on chat prompts.
+- **pagedattention-under-pressure (9):** with prefix caching off and the cache shrunk to 52k tokens, vLLM preempted 203 times in 8 bursts: usage pinned at 100%, throughput −42%, ITL p99 486 ms vs a 62 ms median, a third of requests lost to a 120 s timeout; with prefix caching on, identical prompts never filled the cache at all; block size 32 cost 23% of capacity on this stack for no measurable gain.
 - **fusedkernels (7):** hand-written Triton softmax and RMSNorm reach 67–75% of the T4's 320 GB/s on five of six shapes, beating `torch.softmax` by up to 35% (240 vs 178 GB/s at 4096x4096); `torch.compile` of the unfused code drops to 21–38% of peak on long rows; the single-block design hits a register-spill cliff at 65k-column rows.
