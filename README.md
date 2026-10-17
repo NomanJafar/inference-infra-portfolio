@@ -17,12 +17,12 @@ Each project is its own repository with a concept primer (`CONCEPTS.md`), workin
 | 7 | [fusedkernels](https://github.com/NomanJafar/fusedkernels) | Fused softmax and RMSNorm in Triton, benchmarked against PyTorch | **done** |
 | 8 | [chunkedprefill-lab](https://github.com/NomanJafar/chunkedprefill-lab) | Chunked prefill under mixed prefill/decode load | **done** |
 | 9 | [pagedattention-under-pressure](https://github.com/NomanJafar/pagedattention-under-pressure) | vLLM paging under memory pressure: fragmentation, preemption, eviction | **done** |
-| 10 | splitserve | Disaggregated prefill/decode on separate GPUs | planned |
+| 10 | splitserve | Disaggregated prefill/decode on separate GPUs | built; 2×T4 run pending |
 | 11 | [gpuscaler](https://github.com/NomanJafar/gpuscaler) | Queue-depth autoscaling with cold-start mitigation | **done** |
 | 12 | [tokenmeter](https://github.com/NomanJafar/tokenmeter) | Per-tenant token accounting, $/M tokens, MFU | **done** |
-| 13 | llmgateway | Multi-provider routing with SLOs, rate limits, retries, degradation chains | planned |
-| 14 | inferchaos | GPU throttling, replica kills, traffic spikes; SLO burn and recovery | planned |
-| 15 | serving-benchmarks | Public, reproducible benchmark of three serving configs with full methodology | planned |
+| 13 | llmgateway | Multi-provider routing with SLOs, rate limits, retries, degradation chains | built; live validation pending |
+| 14 | inferchaos | GPU throttling, replica kills, traffic spikes; SLO burn and recovery | built; T4 run pending |
+| 15 | serving-benchmarks | Public, reproducible benchmark of three serving configs with full methodology | built; T4 run pending |
 
 ## Scope
 
