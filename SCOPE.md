@@ -1,5 +1,7 @@
 # Scope lock
 
+**Delivered:** all fifteen projects met the definition of done between 10 and 18 October 2026; the per-project day budgets below were the plan, and the README's Results section is the record.
+
 These are portfolio projects, not production systems. The goal of each is to **demonstrate a concept with measured numbers and a clear write-up**, in a bounded amount of work. Total budget: **~19 dev days**, one or two projects at a time, every day ending in a pushed commit.
 
 ## Definition of done (every project)
